@@ -33,7 +33,7 @@ document.addEventListener('mousemove', (e) => {
         const angle = Math.atan2(buttonY - mouseY, buttonX - mouseX);
 
         // **MAKE IT JUMP FARTHER** - increased multiplier
-        const escapeDistance = 200 + (escapeCount * 5); // Gets farther with each escape!
+        const escapeDistance = 300 + (escapeCount * 7); // Gets farther with each escape!
 
         const newX = buttonRect.left + Math.cos(angle) * escapeDistance;
         const newY = buttonRect.top + Math.sin(angle) * escapeDistance;
@@ -113,9 +113,9 @@ button.addEventListener('click', () => {
 });
 
 // **BONUS: MAKE IT ESCAPE WHEN MOUSE MOVES TOO FAST**
-let lastMouseX = 0;
-let lastMouseY = 0;
-let lastTime = 0;
+let lastMouseX = 1;
+let lastMouseY = 1;
+let lastTime = 1;
 
 document.addEventListener('mousemove', (e) => {
     const currentTime = Date.now();
@@ -129,7 +129,7 @@ document.addEventListener('mousemove', (e) => {
         const speed = distance / timeDiff;
 
         // If mouse moves too fast, trigger escape regardless of distance
-        if (speed > 2) { // Adjust this value for sensitivity
+        if (speed > 1.5) { // Adjust this value for sensitivity
             const buttonRect = button.getBoundingClientRect();
             const buttonX = buttonRect.left + buttonRect.width / 2;
             const buttonY = buttonRect.top + buttonRect.height / 2;
